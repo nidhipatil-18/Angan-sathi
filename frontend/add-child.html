@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add Child - Angan Sathi</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+        .topbar {
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            min-height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            padding: 0 6%;
+        }
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .brand-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 10px;
+
+            background: #7c3aed;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+        .brand-text h1 {
+
+            font-size: 21px;
+
+            color: #111827;
+
+            margin-bottom: 3px;
+        }
+
+        .brand-text p {
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .dashboard-btn {
+
+            border:
+                1px solid #d1d5db;
+
+            background: white;
+
+            color: #374151;
+
+            padding:
+                10px 18px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .dashboard-btn:hover {
+
+            background: #f9fafb;
+        }
+
+        .page-container {
+
+            max-width: 1050px;
+
+            margin: 42px auto;
+
+            padding: 0 24px;
+        }
+
+        .page-heading {
+
+            margin-bottom: 25px;
+        }
+
+        .page-heading h2 {
+
+            font-size: 28px;
+
+            color: #111827;
+
+            margin-bottom: 7px;
+        }
+
+        .page-heading p {
+
+            color: #6b7280;
+
+            font-size: 15px;
+        }
+
+        .form-card {
+
+            background: #ffffff;
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 4px 18px
+                rgba(15, 23, 42, 0.05);
+        }
+
+        .section-title {
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            color: #111827;
+
+            margin-bottom: 6px;
+        }
+
+        .section-description {
+
+            color: #6b7280;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                22px 26px;
+        }
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        label {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: #374151;
+
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+
+            width: 100%;
+
+            height: 45px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            padding:
+                0 13px;
+
+            font-size: 14px;
+
+            color: #111827;
+
+            background: #ffffff;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        input::placeholder {
+
+            color: #9ca3af;
+        }
+
+        input:focus,
+        select:focus {
+
+            border-color:
+                #7c3aed;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    124,
+                    58,
+                    237,
+                    0.10
+                );
+        }
+
+        .field-help {
+
+            font-size: 12px;
+
+            color: #9ca3af;
+
+            margin-top: 6px;
+        }
+
+        .info-box {
+
+            margin-top: 26px;
+
+            padding:
+                14px 16px;
+
+            border-radius: 8px;
+
+            background: #f5f3ff;
+
+            border:
+                1px solid #ddd6fe;
+
+            color: #5b21b6;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .divider {
+
+            height: 1px;
+
+            background: #e5e7eb;
+
+            margin:
+                30px 0 24px;
+        }
+
+        .form-actions {
+
+            display: flex;
+
+            justify-content:
+                flex-end;
+
+            gap: 12px;
+        }
+
+        .cancel-btn,
+        .submit-btn {
+
+            height: 44px;
+
+            padding:
+                0 22px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .cancel-btn {
+
+            background: #ffffff;
+
+            border:
+                1px solid #d1d5db;
+
+            color: #374151;
+        }
+
+        .cancel-btn:hover {
+
+            background: #f9fafb;
+        }
+
+        .submit-btn {
+
+            background: #7c3aed;
+
+            border:
+                1px solid #7c3aed;
+
+            color: white;
+        }
+
+        .submit-btn:hover {
+
+            background: #6d28d9;
+        }
+
+        @media (max-width: 700px) {
+
+            .topbar {
+
+                padding: 0 20px;
+            }
+
+            .brand-text h1 {
+
+                font-size: 18px;
+            }
+
+            .page-container {
+
+                margin: 25px auto;
+
+                padding: 0 15px;
+            }
+
+            .form-card {
+
+                padding: 22px;
+            }
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+            }
+
+            .page-heading h2 {
+
+                font-size: 24px;
+            }
+
+            .form-actions {
+
+                flex-direction:
+                    column-reverse;
+            }
+
+            .cancel-btn,
+            .submit-btn {
+
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            AS
+        </div>
+
+        <div class="brand-text">
+
+            <h1>
+                Angan Sathi
+            </h1>
+
+            <p>
+                Child Record & Growth Management
+            </p>
+
+        </div>
+
+    </div>
+
+    <button
+        class="dashboard-btn"
+        type="button"
+        onclick="window.location.href='dashboard.html'"
+    >
+        Dashboard
+    </button>
+
+</header>
+
+
+<main class="page-container">
+
+    <div class="page-heading">
+
+        <h2>
+            Add New Child
+        </h2>
+
+        <p>
+            Enter the information currently available.
+            Missing information can be added later.
+        </p>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <div class="section-title">
+            Child Information
+        </div>
+
+        <div class="section-description">
+            All fields are optional at this stage.
+        </div>
+
+
+        <form id="childForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="childName">
+                        Child Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="childName"
+                        name="childName"
+                        placeholder="Enter child's full name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dob">
+                        Date of Birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="gender">
+                        Gender
+                    </label>
+
+                    <select
+                        id="gender"
+                        name="gender"
+                    >
+
+                        <option value="">
+                            Select gender
+                        </option>
+
+                        <option value="Boy">
+                            Boy
+                        </option>
+
+                        <option value="Girl">
+                            Girl
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="parentName">
+                        Parent / Guardian Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="parentName"
+                        name="parentName"
+                        placeholder="Enter parent or guardian name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contact">
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="contact"
+                        name="contact"
+                        maxlength="15"
+                        placeholder="Enter mobile number"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="height">
+                        Height
+                    </label>
+
+                    <input
+                        type="number"
+                        id="height"
+                        name="height"
+                        min="0"
+                        step="0.01"
+                        placeholder="Enter height in cm"
+                    >
+
+                    <span class="field-help">
+                        Measured in centimetres (cm)
+                    </span>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="weight">
+                        Weight
+                    </label>
+
+                    <input
+                        type="number"
+                        id="weight"
+                        name="weight"
+                        min="0"
+                        step="0.01"
+                        placeholder="Enter weight in kg"
+                    >
+
+                    <span class="field-help">
+                        Measured in kilograms (kg)
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                You can save a partial record now
+                and complete the missing information
+                later using Edit Child.
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelChildBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Add Child
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

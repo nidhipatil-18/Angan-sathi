@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Details - Angan Sathi</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f7fb;
+    color: #1f2937;
+}
+
+.topbar {
+    height: 78px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #7c3aed;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.brand h1 {
+    font-size: 21px;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.brand p {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.back-btn {
+    padding: 10px 18px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #f9fafb;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 42px auto;
+    padding: 0 24px;
+}
+
+.page-title {
+    margin-bottom: 25px;
+}
+
+.page-title h2 {
+    font-size: 28px;
+    color: #111827;
+    margin-bottom: 7px;
+}
+
+.page-title p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.details-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+}
+
+.child-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.child-name-section h3 {
+    font-size: 25px;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.child-name-section p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    height: 40px;
+    padding: 0 17px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #7c3aed;
+    color: white;
+    border: 1px solid #7c3aed;
+}
+
+.edit-btn:hover {
+    background: #6d28d9;
+}
+
+.delete-btn {
+    background: white;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.delete-btn:hover {
+    background: #fef2f2;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detail-item {
+    padding: 20px 22px;
+    min-height: 88px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-item:nth-child(odd) {
+    border-right: 1px solid #e5e7eb;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.detail-value {
+    font-size: 15px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.status {
+    display: inline-flex;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #ecfdf5;
+    color: #047857;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .topbar {
+        padding: 0 20px;
+    }
+
+    .brand h1 {
+        font-size: 18px;
+    }
+
+    .container {
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    .details-card {
+        padding: 22px;
+    }
+
+    .child-header {
+        flex-direction: column;
+    }
+
+    .actions {
+        width: 100%;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        flex: 1;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-item:nth-child(odd) {
+        border-right: none;
+    }
+
+    .page-title h2 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+            <h1>Angan Sathi</h1>
+            <p>Child Record & Growth Management</p>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='dashboard.html'">
+        ← Back to Dashboard
+    </button>
+</header>
+
+<main class="container">
+
+    <div class="page-title">
+        <h2>Child Details</h2>
+        <p>View complete information about the child</p>
+    </div>
+
+    <div class="details-card">
+
+        <div class="child-header">
+
+            <div class="child-name-section">
+                <h3 id="detailsName">Loading...</h3>
+                <p>Complete child information</p>
+            </div>
+
+            <div class="actions">
+
+                <button
+                    class="edit-btn"
+                    id="editDetailsBtn"
+                >
+                    Edit Child
+                </button>
+
+                <button
+                    class="delete-btn"
+                    id="deleteDetailsBtn"
+                >
+                    Delete Child
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+                <div class="detail-label">Child Name</div>
+                <div
+                    class="detail-value"
+                    id="detailsChildName"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Date of Birth</div>
+                <div
+                    class="detail-value"
+                    id="detailsDob"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Current Age</div>
+                <div
+                    class="detail-value"
+                    id="detailsAge"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Current Age Group</div>
+                <div
+                    class="detail-value"
+                    id="detailsAgeGroup"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Gender</div>
+                <div
+                    class="detail-value"
+                    id="detailsGender"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Parent / Guardian</div>
+                <div
+                    class="detail-value"
+                    id="detailsParent"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Contact Number</div>
+                <div
+                    class="detail-value"
+                    id="detailsContact"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Height</div>
+                <div
+                    class="detail-value"
+                    id="detailsHeight"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Weight</div>
+                <div
+                    class="detail-value"
+                    id="detailsWeight"
+                >
+                    —
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">Record Status</div>
+                <div
+                    class="detail-value"
+                    id="detailsStatus"
+                >
+                    —
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
